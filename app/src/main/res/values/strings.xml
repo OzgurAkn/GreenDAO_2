@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Greendao_1</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_display_entry">DisplayEntry</string>
+    <string name="diary_title">Diary title</string>
+    <string name="content_title">Content</string>
+    <string name="date_recorded">Date Recorded</string>
+</resources>
