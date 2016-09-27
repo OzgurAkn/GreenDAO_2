@@ -52,7 +52,7 @@ public class DisplayDiaries extends ListActivity
 
         ButterKnife.bind(this);
 
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "notes-db", null);
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "entrys-db", null);
         this.database = helper.getWritableDatabase();
         daoMaster = new DaoMaster(this.database);
         daoSession = this.daoMaster.newSession();
@@ -94,17 +94,30 @@ public class DisplayDiaries extends ListActivity
 
     private void addEntries()
     {
-        for (int i = 0; i < 1000; i++)
+        SQLiteDatabase database = entryDao.getDatabase();
+        database.beginTransaction();
+
+        try
         {
-            Entry entry = new Entry(null, Constants.SAMPLE_TITLE, System.currentTimeMillis(), Constants.SAMPLE_CONTENT);
-            this.entryDao.insert(entry);
+            for (int i = 0; i < 10000; i++)
+            {
+                Entry entry = new Entry(null, Constants.SAMPLE_TITLE, System.currentTimeMillis(), Constants.SAMPLE_CONTENT);
+                this.entryDao.insert(entry);
+            }
+            // do all your inserts and so on here.
+            database.setTransactionSuccessful();
+        } catch (Exception ex)
+        {
+        } finally
+        {
+            database.endTransaction();
         }
 
         this.cursor = this.database.query(this.entryDao.getTablename(), this.entryDao.getAllColumns(), null, null, null, null, null);
 
         this.adapter.setData(this.cursor);
 
-        CharSequence text = "Added 50 entries";
+        CharSequence text = "Added 1000 entries";
         Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
         toast.show();
 

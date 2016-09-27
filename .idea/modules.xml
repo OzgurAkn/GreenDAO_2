@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Greendao_1.iml" filepath="$PROJECT_DIR$/Greendao_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GreenDAO_2.iml" filepath="$PROJECT_DIR$/GreenDAO_2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/greendao/greendao.iml" filepath="$PROJECT_DIR$/greendao/greendao.iml" />
     </modules>
